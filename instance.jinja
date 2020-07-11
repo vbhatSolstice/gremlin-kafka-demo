@@ -48,7 +48,7 @@ resources:
     sourceRanges: ["0.0.0.0/0"]
     allowed:
     - IPProtocol: TCP
-      ports: ["80","9092","9093","9094"]
+      ports: ["80","9092","9093","9094", "8080"]
 outputs:
 - name: vm_ip
   value: $(ref.{{ BASE_NAME }}.networkInterfaces[0].accessConfigs[0].natIP)
