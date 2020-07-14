@@ -25,7 +25,7 @@ sudo docker run -i     --cap-add=NET_ADMIN     -e GREMLIN_TEAM_ID="${GREMLIN_TEA
 `for i in {1..1000}; do 
   curl -i -X POST -H "Content-Type: application/json" -d 
     '{"eventId":null,"trade":{"id":"'$i'","type":"Stock","symbol":"MSFT","description":"Microsoft Corp", "instruction":"buy", "quantity":100}}' 
-    "http://`IP addr of VM`:8080/tradeEvent"; 
+    "http://IP addr of VM:8080/tradeEvent"; 
 done`
 
 
