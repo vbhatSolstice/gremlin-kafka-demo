@@ -18,5 +18,5 @@ docker push vinayvb/gremlin-kafka:vx
 1. start kafka
 2. allow tcp on port 8080
 3. gremlin init
-4. docker run -p 8080:8080 vinayvb/gremlin-kafka:vx
+4. docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=cloud" vinayvb/gremlin-kafka:vx
 
