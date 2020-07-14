@@ -16,10 +16,16 @@ sudo docker run -i     --cap-add=NET_ADMIN     -e GREMLIN_TEAM_ID="${GREMLIN_TEA
 5. docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=cloud" vinayvb/gremlin-kafka:vx
 
 # Pushing a new image
-./gradlew build
-docker build --build-arg JAR_FILE=build/libs/*.jar -t gremlin-kafka .
-docker tag gremlin-kafka vinayvb/gremlin-kafka:vx
-docker push vinayvb/gremlin-kafka:vx
+1. ./gradlew build
+2. docker build --build-arg JAR_FILE=build/libs/*.jar -t gremlin-kafka .
+3. docker tag gremlin-kafka vinayvb/gremlin-kafka:vx
+4. docker push vinayvb/gremlin-kafka:vx
 
+# Run events
+`for i in {1..1000}; do \
+  curl -i -X POST -H "Content-Type: application/json" -d \
+    '{"eventId":null,"trade":{"id":"'$i'","type":"Stock","symbol":"MSFT","description":"Microsoft Corp", "instruction":"buy", "quantity":100}}' \
+    "http://130.211.222.241:8080/tradeEvent"; \
+done`
 
 
