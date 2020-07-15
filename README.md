@@ -1,4 +1,4 @@
-# Spinning up VM
+# Spinning up VM 
 gcloud deployment-manager deployments create kafka --config config.yaml
 
 # Kafka startup
