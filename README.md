@@ -11,6 +11,7 @@ sudo docker run -i     --cap-add=NET_ADMIN     -e GREMLIN_TEAM_ID="${GREMLIN_TEA
 # Demo on gcp
 1. start kafka
 2. allow tcp on port 8080
+3. Run IBM MQ on GCP and open ports 1414 and 9443
 3. gremlin init
 4. Build a new image with the kafka broker ip
 5. docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=cloud" vinayvb/gremlin-kafka:vx
@@ -28,4 +29,11 @@ sudo docker run -i     --cap-add=NET_ADMIN     -e GREMLIN_TEAM_ID="${GREMLIN_TEA
     "http://IP addr of VM:8080/tradeEvent"; sleep 1;
 done`
 
-
+# Running IBM MQ
+1. docker run \
+  --env LICENSE=accept \
+  --env MQ_QMGR_NAME=QM1 \
+  --publish 1414:1414 \
+  --publish 9443:9443 \
+  --detach \
+  ibmcom/mq
