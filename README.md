@@ -26,7 +26,7 @@ sudo docker run -i     --cap-add=NET_ADMIN     -e GREMLIN_TEAM_ID="${GREMLIN_TEA
 `for i in {1..200}; do 
   curl -i -X POST -H "Content-Type: application/json" -d 
     '{"eventId":null,"trade":{"id":"'$i'","type":"Stock","symbol":"MSFT","description":"Microsoft Corp", "instruction":"buy", "quantity":100}}' 
-    "http://IP addr of VM:8080/tradeEvent"; sleep 1;
+    "https://kafka-demo-responsive-lizard.cfapps.io/tradeEvent"; sleep 1;
 done`
 
 # Running IBM MQ
