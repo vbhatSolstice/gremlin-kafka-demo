@@ -23,7 +23,7 @@ sudo docker run -i     --cap-add=NET_ADMIN     -e GREMLIN_TEAM_ID="${GREMLIN_TEA
 4. docker push vinayvb/gremlin-kafka:vx
 
 # Run events
-`for i in {1..200}; do 
+`for i in {1..500}; do 
   curl -i -X POST -H "Content-Type: application/json" -d 
     '{"eventId":null,"trade":{"id":"'$i'","type":"Stock","symbol":"MSFT","description":"Microsoft Corp", "instruction":"buy", "quantity":100}}' 
     "https://kafka-demo-responsive-lizard.cfapps.io/tradeEvent"; sleep 1;
