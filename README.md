@@ -17,8 +17,11 @@ VM_IP_ADDR=`IP addr of VM` docker-compose -f kafka.yml up
 5. Start the gremlin client and daemon with: gremlin init
 6. Deploy Transactions POC to PCF (https://github.com/vbhatSolstice/spring-kafka-txn)
 7. Open a terminal on your machine and run the shell script below (Run events) to submit 500 events with a 1 second delay to Kafka
-8. Run scenarios on Gremlin to first bring down a zookeper instance and a broker and make sure you are still able to post events by looking at the terminal
+8. Run scenarios on Gremlin to first bring down 2 zookeper instances and a broker and make sure you are still able to post events by looking at the terminal
 9. Bring down the second broker and now you will see that you can't submit any more events
+10. Have another docker compose file to bring up the zookeeper and broker instances that are down and see if your producer is able to produce events to Kafka.
+11. The producer encounters a zombie fenced exception.
+12. This experiment tells us that our producer isnt able to recover successfully when Kafka goes down and is brought back up
 
 # Run events
 `for i in {1..500}; do 
